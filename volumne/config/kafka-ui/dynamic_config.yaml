@@ -1,0 +1,11 @@
+auth:
+  type: DISABLED
+kafka:
+  clusters:
+  - bootstrapServers: 175.25.80.2:9092
+    name: docker-kafka-cluster
+    properties: {}
+    readOnly: false
+rbac:
+  roles: []
+webclient: {}

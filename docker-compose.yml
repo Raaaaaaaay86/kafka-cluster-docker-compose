@@ -85,6 +85,19 @@ services:
       - KAFKA_CONTROLLER_USER=controller_user
       - KAFKA_CONTROLLER_PASSWORD=456789
 
+  kafka-ui:
+    container_name: kafka_cluster_ui
+    image: provectuslabs/kafka-ui:latest
+    networks:
+      kafka_cluster_network:
+        ipv4_address: 175.25.80.5
+    ports:
+      - 8888:8080
+    environment:
+      DYNAMIC_CONFIG_ENABLED: 'true'
+    volumes:
+      - ./volumne/config/kafka-ui/dynamic_config.yaml:/etc/kafkaui/dynamic_config.yaml
+
 networks:
   kafka_cluster_network:
     ipam:
